@@ -431,26 +431,30 @@
     <video id="videoPlayer" controls=""></video>
     
     <script src="js/hls.min.js"></script>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3U8 Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+    <video id="video" controls></video>
     <script>
-        const video = document.getElementById('videoPlayer');
+        const video = document.getElementById('video');
+        const hls = new Hls();
         const m3u8Url = 'https://cdn.rtvdrenthe.nl/live/rtvdrenthe/tv/1080p/prog_index.m3u8'; // Replace with your M3U8 URL
-    
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(m3u8Url);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                video.play();
-            });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = m3u8Url;
-            video.addEventListener('loadedmetadata', function() {
-                video.play();
-            });
-        } else {
-            console.error('Your browser does not support M3U8 playback.');
-        }
+
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
     </script>
+</body>
+</html>
+
     
 
 
