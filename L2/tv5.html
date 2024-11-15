@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome,opera,firefox,safari">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Live-sport.afg </title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(2, 26, 18);
+}
+.marquee {
+    display: flex;
+    overflow: hidden;
+    background:;
+    color: white;
+    font-size: 25px;
+    padding: 10px 0;
+    white-space: nowrap;
+    animation: marquee 23s linear infinite;
+    
+}
+.marquee-item {
+    display: inline-block;
+    margin: 40px; /* Space between items */
+    animation: colorChange 3s infinite;
+    
+   
+}
+
+@keyframes marquee {
+     50% { transform: translateX(+50%); }
+   50% { transform: translateX(50%); }
+}
+
+@keyframes colorChange {
+    20% { color: red; }
+    40% { color: orange; }
+    60% { color: yellow; }
+    75% { color: rgb(59, 213, 59); }
+    50% { color:aquamarine; }
+    25% { color: bisque;}
+
+}
+.color-changing {
+            font-size: 50em;
+            animation: colorChange 3s infinite;
+           
+        }
+video {
+    width: 80%;
+    max-width: 800px;
+    margin-top: 20px;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    margin: 50px;
+}
+    </style>
+</head>
+<body>
+    <div class="marquee">
+        <span  class="marquee-item">🍹  Enjoy the Match 🍹</span>
+        <span  class="marquee-item"> Respect </span> 
+        
+        <span class="marquee-item">🌟 wes freedom 🌟</span>
+       <!-- <span class="marquee-item">⚡️ Don't Miss ⚡️ any Match </span>-->
+        <!--<span  class="marquee-item"> any Match </span>-->
+        <!--<span class="marquee-item">  ✨if you Enjoy ✨</span>-->
+       
+        <span class="marquee-item">✌️ peace ✌️ </span>
+         <span class="marquee-item"> ☕️ buy me a coffee ☕️</span>
+    </div>
+    <video id="video" controls autoplay></video>
+    <script>
+        const video = document.getElementById('video');
+        const hls = new Hls();
+        const m3u8Url = 'http://honeybee.watch:25461/live/Mckee547/Mckee777/515737.m3u8'; // Replace with your M3U8 URL
+
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+    </script>
+</body>
+</html>
