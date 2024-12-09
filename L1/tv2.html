@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>live sport.afg</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-
-    <style>
-       
-        
-         @keyframes colorChange {
-            18% { color :rgb(143, 229, 51)}
-            35% { color: rgb(255, 0, 0); }
-            52% { color: rgb(29, 238, 29); }
-            70% { color: rgb(237, 237, 29); }
-            85% { color: rgb(182, 8, 182); }
-            100% { color: rgb(69, 228, 175); }
-        }
-
-        .color-changing {
-            font-size: 3m;
-            animation: colorChange 3s infinite;
-           
-
-        }
-
-        body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live sport.afg</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<style>
+    
+            body {
              margin: 0;
             display: flex;
             justify-content: center;
@@ -40,29 +23,33 @@
             width: 100%;
             max-width: 800px;
             border: 2px solid #ccc;
-            border-radius: 8px;
-           
-         
+            border-radius: 8px; 
         }
-    </style>
-</head>
+</style>
 <body>
+  <video id="video" width="100%" height="auto" controls></video>
 
-    <tex align ="center"> <h1 class="color-changing"> <!--- &nbsp; &nbsp; &nbsp;-->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
-   
-    
-        
-    <video id="video" controls autoplay></video>
-    <script>
-        const video = document.getElementById('video');
-        const hls = new Hls();
-        const m3u8Url = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Replace with your M3U8 URL
+  <script>
+    if (Hls.isSupported()) {
+      var video = document.getElementById('video');
+      var hls = new Hls({
+        startLevel: -1, // start from the best level
+        maxBufferLength: 30, // max buffer length in seconds
+        maxMaxBufferLength: 60, // max overall buffer length
+        lowLatencyMode: true, // low latency
+      });
 
-        hls.loadSource(m3u8Url);
-        hls.attachMedia(video);
-        hls.on(Hls.Events.MANIFEST_PARSED, function () {
-            video.play();
-        });
-    </script>
+      hls.loadSource('http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8');
+      hls.attachMedia(video);
+
+      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+        video.play();
+      });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8';
+      video.play();
+    }
+  </script>
 </body>
 </html>
