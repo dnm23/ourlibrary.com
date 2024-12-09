@@ -2,14 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="keyword" content="کتاب,سریال دوبله,فیلم دوبله, pdf فارسى، live-sport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome,opera,firefox,safari">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live sport.afg</title>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <title>Fast M3U8 Player</title>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>  <!-- HLS.js Library -->
 </head>
 <style>
-    
-            body {
-             margin: 0;
+    body {
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,28 +28,62 @@
         }
 </style>
 <body>
-  <video id="video" width="100%" height="auto" controls></video>
+  <!-- Video element where the stream will be played -->
+  <video id="video" controls autoplay width="100%" height="auto"></video>
 
   <script>
+    // Check if HLS.js is supported by the browser
     if (Hls.isSupported()) {
-      var video = document.getElementById('video');
-      var hls = new Hls({
-        startLevel: -1, // start from the best level
-        maxBufferLength: 30, // max buffer length in seconds
-        maxMaxBufferLength: 60, // max overall buffer length
-        lowLatencyMode: true, // low latency
+      const video = document.getElementById('video');
+      
+      // Initialize HLS.js with performance-optimizing settings
+      const hls = new Hls({
+        startLevel: -1,          // Let the player automatically select the best starting quality
+        maxMaxBufferLength: 30,  // Maximum buffer length (low value = faster start but might result in more rebuffering)
+        maxBufferLength: 10,     // Max buffer size (lower = faster start but can result in stalls on slow networks)
+        lowLatencyMode: true,    // Enable low latency mode for live streams
+        enableWorker: true,      // Enable the worker for faster processing
+        liveSyncDurationCount: 3 // Sync playback with the live edge
       });
 
-      hls.loadSource('http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8');
+      // Load the M3U8 stream URL
+      const streamUrl = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Replace with your M3U8 stream URL
+      hls.loadSource(streamUrl);
+
+      // Attach HLS.js to the video element
       hls.attachMedia(video);
 
+      // Start playback once the manifest is parsed
       hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
-    }
-    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8';
+      
+      // Handle errors
+      hls.on(Hls.Events.ERROR, function (event, data) {
+        if (data.fatal) {
+          switch (data.fatal) {
+            case Hls.ErrorTypes.NETWORK_ERROR:
+              console.error('A network error occurred.');
+              break;
+            case Hls.ErrorTypes.MEDIA_ERROR:
+              console.error('A media error occurred.');
+              break;
+            case Hls.ErrorTypes.OTHER_ERROR:
+              console.error('An unknown error occurred.');
+              break;
+            default:
+              console.error('Fatal error:', data);
+              break;
+          }
+        }
+      });
+
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // For browsers that support HLS natively (e.g., Safari)
+      video.src = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Replace with your M3U8 stream URL
       video.play();
+    } else {
+      console.error('HLS not supported by this browser.');
     }
   </script>
 </body>
