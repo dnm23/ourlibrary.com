@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live sport.afg</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <style>
+       
+        
+         @keyframes colorChange {
+            18% { color :rgb(143, 229, 51)}
+            35% { color: rgb(255, 0, 0); }
+            52% { color: rgb(29, 238, 29); }
+            70% { color: rgb(237, 237, 29); }
+            85% { color: rgb(182, 8, 182); }
+            100% { color: rgb(69, 228, 175); }
+        }
+
+        .color-changing {
+            font-size: 3m;
+            animation: colorChange 3s infinite;
+           
+
+        }
+
+        body {
+             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:rgb(41, 2, 2);
+            padding-top: 0px;
+            padding: 0;
+        }
+        video {
+            /*margin-top: 10px;*/
+            width: 100%;
+            max-width: 800px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+           
+         
+        }
+    </style>
+</head>
+<body>
+
+    <tex align ="center"> <h1 class="color-changing"> <!--- &nbsp; &nbsp; &nbsp;-->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
+   
+    
+        
+    <video id="video" controls autoplay></video>
+    <script>
+        const video = document.getElementById('video');
+        const hls = new Hls();
+        const m3u8Url = 'http://1tv41.icu:8080/live/Gizvid145@giz.com/1234@4321/137720.m3u8'; // Replace with your M3U8 URL
+
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+    </script>
+</body>
+</html>
