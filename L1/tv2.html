@@ -1,21 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="keyword" content="کتاب,سریال دوبله,فیلم دوبله, pdf فارسى، live-sport">
+    <meta charset="UTF-8">
+    <meta name="keyword" content="کتاب,سریال دوبله,فیلم دوبله, pdf فارسى، live-sport">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome,opera,firefox,safari">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast M3U8 Player</title>
-  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>  <!-- HLS.js Library -->
-</head>
-<style>
-    body {
-            margin: 0;
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live sport.afg</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <style>
+       
+       @keyframes colorChange {
+            30% { color :rgb(14, 15, 13)}
+            65% { color: rgb(255, 0, 0); }
+            100% { color: rgb(29, 238, 29); }
+            70% { color: rgb(29, 238, 29); }
+            40% { color: rgb(255, 0, 0); }
+            20% { color: rgb(6, 7, 6); }
+        }
+
+        .color-changing {
+            font-size: 3,5m;
+            animation: colorChange 5s infinite;
+        }
+
+        body {
+             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color:rgb(41, 2, 2);
+            background-color:rgb(81, 101, 9);
             padding-top: 0px;
             padding: 0;
         }
@@ -24,67 +39,31 @@
             width: 100%;
             max-width: 800px;
             border: 2px solid #ccc;
-            border-radius: 8px; 
-        }
-</style>
+            border-radius: 8px;
+           }
+           @font-face {
+  font-family: 'CustomFont';
+  src: url('customfont.woff2') format('woff2');
+  font-display: swap;
+}
+
+    </style>
+</head>
 <body>
-  <!-- Video element where the stream will be played -->
-  <video id="video" controls autoplay width="100%" height="auto"></video>
 
-  <script>
-    // Check if HLS.js is supported by the browser
-    if (Hls.isSupported()) {
-      const video = document.getElementById('video');
-      
-      // Initialize HLS.js with performance-optimizing settings
-      const hls = new Hls({
-        startLevel: -1,          // Let the player automatically select the best starting quality
-        maxMaxBufferLength: 30,  // Maximum buffer length (low value = faster start but might result in more rebuffering)
-        maxBufferLength: 10,     // Max buffer size (lower = faster start but can result in stalls on slow networks)
-        lowLatencyMode: true,    // Enable low latency mode for live streams
-        enableWorker: true,      // Enable the worker for faster processing
-        liveSyncDurationCount: 3 // Sync playback with the live edge
-      });
+    <tex align ="center"> <h1 class="color-changing"> <!--- &nbsp; &nbsp; &nbsp;-->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
+   
+    <video id="video" controls autoplay></video>
+    <script>
+        const video = document.getElementById('video');
+        const hls = new Hls();
+        const m3u8Url = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Replace with your M3U8 URL
 
-      // Load the M3U8 stream URL
-      const streamUrl = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Replace with your M3U8 stream URL
-      hls.loadSource(streamUrl);
-
-      // Attach HLS.js to the video element
-      hls.attachMedia(video);
-
-      // Start playback once the manifest is parsed
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
-        video.play();
-      });
-      
-      // Handle errors
-      hls.on(Hls.Events.ERROR, function (event, data) {
-        if (data.fatal) {
-          switch (data.fatal) {
-            case Hls.ErrorTypes.NETWORK_ERROR:
-              console.error('A network error occurred.');
-              break;
-            case Hls.ErrorTypes.MEDIA_ERROR:
-              console.error('A media error occurred.');
-              break;
-            case Hls.ErrorTypes.OTHER_ERROR:
-              console.error('An unknown error occurred.');
-              break;
-            default:
-              console.error('Fatal error:', data);
-              break;
-          }
-        }
-      });
-
-    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // For browsers that support HLS natively (e.g., Safari)
-      video.src = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Replace with your M3U8 stream URL
-      video.play();
-    } else {
-      console.error('HLS not supported by this browser.');
-    }
-  </script>
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+    </script>
 </body>
 </html>
