@@ -2,98 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome,opera,firefox,safari">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple HLS Player</title>
+    <title>live sport.afg</title>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
     <style>
-        
+       
+       @keyframes colorChange {
+            30% { color :rgb(14, 15, 13)}
+            65% { color: rgb(255, 0, 0); }
+            100% { color: rgb(29, 238, 29); }
+            70% { color: rgb(29, 238, 29); }
+            40% { color: rgb(255, 0, 0); }
+            20% { color: rgb(6, 7, 6); }
+        }
+
+        .color-changing {
+            font-size: 25px;
+            animation: colorChange 5s infinite;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-            background-color: aquamarine;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:rgb(81, 101, 9);
+            padding-top: 0px;
+            padding: 0;
         }
         video {
+            /*margin-top: 10px;*/
             width: 100%;
             max-width: 800px;
-            background-color: black;
-            border: 2px solid #ccc;
-            border-radius: 8px;
-        }
-        button {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 16px;
-            cursor: circle;
-        }
+            border: 1px solid #ccc;
+            border-radius: 5px;
+           }
+           @font-face {
+  font-family: 'CustomFont';
+  src: url('customfont.woff2') format('woff2');
+  font-display: swap;
+}
+
     </style>
 </head>
 <body>
 
-    <h1>(🇦🇫) سلام از افغانستان (🇦🇫)</h1>
-
-    <!-- Video Element -->
-    <video id="video" controls></video>
-
-    <div>
-        <button id="playPauseButton">Pause</button>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <tex align ="center"> <h1 class="color-changing"> <!---      -->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
+   
+    <video id="video" controls autoplay></video>
     <script>
-        const videoElement = document.getElementById('video');
-        const playPauseButton = document.getElementById('playPauseButton');
+        const video = document.getElementById('video');
+        const hls = new Hls();
+        const m3u8Url = 'http://viponern.top:8080//live/VIP013221728044939102/37c47a6e35c2/1275.m3u8'; // Replace with your M3U8 URL
 
-        // HLS stream URL (replace with your own stream URL)
-        const streamUrl = 'http://hsynnd.xyz//live/chrisseintv83/en3uqjrj/207802.m3u8'; // Example URL
-
-        // Check if HLS.js is supported
-        if (Hls.isSupported()) {
-            const hls = new Hls();
-            hls.loadSource(streamUrl);
-            hls.attachMedia(videoElement);
-
-            // When the manifest is loaded, the video starts playing automatically
-            hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                console.log("HLS stream loaded successfully.");
-            });
-
-            // Error handling
-            hls.on(Hls.Events.ERROR, function(event, data) {
-                if (data.fatal) {
-                    switch (data.fatal) {
-                        case Hls.ErrorTypes.NETWORK_ERROR:
-                            console.error("Network error:", data);
-                            break;
-                        case Hls.ErrorTypes.MEDIA_ERROR:
-                            console.error("Media error:", data);
-                            break;
-                        case Hls.ErrorTypes.OTHER_ERROR:
-                            console.error("Other error:", data);
-                            break;
-                        default:
-                            console.error("Fatal error:", data);
-                            break;
-                    }
-                }
-            });
-        } else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
-            // For Safari and other native HLS-supported browsers
-            videoElement.src = streamUrl;
-        } else {
-            console.error("HLS.js is not supported and browser does not support native HLS playback.");
-        }
-
-        // Play/Pause Button Handler
-        playPauseButton.addEventListener('click', function() {
-            if (videoElement.paused) {
-                videoElement.play();
-                playPauseButton.innerText = 'Pause';
-            } else {
-                videoElement.pause();
-                playPauseButton.innerText = 'Play';
-            }
+        hls.loadSource(m3u8Url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
         });
     </script>
-
 </body>
 </html>
