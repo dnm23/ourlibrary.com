@@ -19,7 +19,7 @@
         }
 
         .color-changing {
-            font-size: 25px;
+            font-size: 3,5px;
             animation: colorChange 5s infinite;
         }
 
@@ -56,7 +56,7 @@
     <script>
         const video = document.getElementById('video');
         const hls = new Hls();
-        const m3u8Url = 'https://live.teleradiocom.tj/8/3m.m3u8'; // Replace with your M3U8 URL
+        const m3u8Url = 'http://kstv.us:8080//live/9cWddvFH2T/9182562248/15950.m3u8'; // Replace with your M3U8 URL
 
         hls.loadSource(m3u8Url);
         hls.attachMedia(video);
