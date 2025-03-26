@@ -2,87 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome,opera,firefox,safari">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Live-sport.afg </title>
+    <title>live sport.afg</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: rgb(2, 26, 18);
-}
-.marquee {
-    display: flex;
-    overflow: hidden;
-    background:;
-    color: white;
-    font-size: 25px;
-    padding: 10px 0;
-    white-space: nowrap;
-    animation: marquee 23s linear infinite;
-    
-}
-.marquee-item {
-    display: inline-block;
-    margin: 40px; /* Space between items */
-    animation: colorChange 3s infinite;
-    
-   
-}
-
-@keyframes marquee {
-     50% { transform: translateX(+50%); }
-   50% { transform: translateX(50%); }
-}
-
-@keyframes colorChange {
-    20% { color: red; }
-    40% { color: orange; }
-    60% { color: yellow; }
-    75% { color: rgb(59, 213, 59); }
-    50% { color:aquamarine; }
-    25% { color: bisque;}
-
-}
-.color-changing {
-            font-size: 50em;
-            animation: colorChange 3s infinite;
-           
+       
+       @keyframes colorChange {
+            30% { color :rgb(14, 15, 13)}
+            65% { color: rgb(255, 0, 0); }
+            100% { color: rgb(29, 238, 29); }
+            70% { color: rgb(29, 238, 29); }
+            40% { color: rgb(255, 0, 0); }
+            20% { color: rgb(6, 7, 6); }
         }
-video {
-    width: 80%;
-    max-width: 800px;
-    margin-top: 20px;
-    border: 1px solid #030303;
-    border-radius: 1px;
-    margin: 50px;
-}
+
+        .color-changing {
+            font-size: 3 px;
+            animation: colorChange 5s infinite;
+        }
+
+        body {
+             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color:rgb(12, 42, 134);
+            padding-top: 0px;
+            padding: 0;
+        }
+        video {
+            /*margin-top: 10px;*/
+            width: 100%;
+            max-width: 800px;
+            border: 1px solid #030303;
+            border-radius: 1px;
+           
+         
+        }
     </style>
 </head>
 <body>
-    <div class="marquee">
-        <span  class="marquee-item">🍹  Enjoy the Match 🍹</span>
-        <span  class="marquee-item"> Respect </span> 
+
+    <tex align ="center"> <h1 class="color-changing"> <!--- &nbsp; &nbsp; &nbsp;-->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
+   
+    
         
-        <span class="marquee-item">🌟 wes freedom 🌟</span>
-       <!-- <span class="marquee-item">⚡️ Don't Miss ⚡️ any Match </span>-->
-        <!--<span  class="marquee-item"> any Match </span>-->
-        <!--<span class="marquee-item">  ✨if you Enjoy ✨</span>-->
-       
-        <span class="marquee-item">✌️ peace ✌️ </span>
-         <span class="marquee-item"> ☕️ buy me a coffee ☕️</span>
-    </div>
     <video id="video" controls autoplay></video>
     <script>
         const video = document.getElementById('video');
         const hls = new Hls();
-        const m3u8Url = 'https://live.playstop.me/1816184091/index.m3u8'; // Replace with your M3U8 URL
+        const m3u8Url = 'https://stream.sainaertebat.com/hls2/varzeshtest.m3u8'; // Replace with your M3U8 URL
 
         hls.loadSource(m3u8Url);
         hls.attachMedia(video);
