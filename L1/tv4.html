@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome,opera,firefox,safari">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>live sport.afg</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -23,12 +24,12 @@
         }
 
         body {
-             margin: 0;
+            margin: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color:rgb(12, 42, 134);
+            background-color:rgb(81, 101, 9);
             padding-top: 0px;
             padding: 0;
         }
@@ -38,22 +39,24 @@
             max-width: 800px;
             border: 1px solid #030303;
             border-radius: 1px;
-           
-         
-        }
+           }
+           @font-face {
+  font-family: 'CustomFont';
+  src: url('customfont.woff2') format('woff2');
+  font-display: swap;
+}
+
     </style>
 </head>
 <body>
 
-    <tex align ="center"> <h1 class="color-changing"> <!--- &nbsp; &nbsp; &nbsp;-->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
+    <tex align ="center"> <h1 class="color-changing"> <!---      -->(🇦🇫) سلام از افغانستان (🇦🇫)</h1><br>
    
-    
-        
     <video id="video" controls autoplay></video>
     <script>
         const video = document.getElementById('video');
         const hls = new Hls();
-        const m3u8Url = 'https://stream.sainaertebat.com/hls2/varzeshtest.m3u8'; // Replace with your M3U8 URL
+        const m3u8Url =   'http://212.102.60.10/FOX_Sports_1/index.m3u8'; // Replace with your M3U8 URL
 
         hls.loadSource(m3u8Url);
         hls.attachMedia(video);
