@@ -18,9 +18,9 @@
     <meta name="robots" content="noindex,nofollow">
     <meta name="keyword" content="کتاب,سریال دوبله,فیلم دوبله, pdf فارسى، live-sport">
     <meta name="description" content="">
-    <link rel="canonical" href="https://ourlibrary.us/parts">
+    <link rel="canonical" href="https://ourlibrary.us/parts  ">
     <meta property="og:title" content="parts | Ourlibrary">
-    <meta property="og:url" content="https://ourlibrary.us/parts">
+    <meta property="og:url" content="https://ourlibrary.us/parts  ">
     <meta property="og:description" content="">
     <meta property="og:image" content="images/ccf551a52ab869acbe150c99e3aa5a84ce3803f75e54ade929941269aa8b6710-1_2.jpeg">
     <meta name="twitter:card" content="summary_large_image">
@@ -116,9 +116,19 @@
             font-weight: bold;
             color: inherit; /* Gebruik standaard linkkleur */
         }
-        .mobile-menu {
-            display: none; /* Verberg mobiel menu standaard */
+        
+        /* Mobile Menu Button */
+        .mobile-menu-button {
+            display: none;
+            background: #860f0f;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
         }
+        
         .main-navigation {
             flex-grow: 1;
             text-align: right;
@@ -191,7 +201,7 @@
             gap: 20px; /* Moderne manier om ruimte tussen items te beheren */
         }
         .column-item {
-            width: calc(20% - 16px); /* 20% breedte minus ruimte ertussen (gap van 20px -> 4px per kolom) */
+            width: calc(25% - 32px); /* 20% breedte minus ruimte ertussen (gap van 20px -> 4px per kolom) */
             /* margin-bottom: 20px; Niet nodig met gap */
             box-sizing: border-box; /* Zorg dat padding binnen de breedte telt */
             text-align: center;
@@ -212,6 +222,50 @@
             }
              .menu-item {
                 margin: 5px 10px; /* Minder marge op mobiel */
+            }
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+            .main-navigation {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #8e1111;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            .main-navigation.active {
+                display: block;
+            }
+            .main-menu {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .menu-item {
+                margin: 5px 0;
+                width: 100%;
+            }
+            .submenu {
+                position: static;
+                box-shadow: none;
+                display: none;
+                background-color: #a31515;
+                padding-left: 20px;
+            }
+            .has-submenu.active .submenu {
+                display: block;
+            }
+            .has-submenu > .menu-link::after {
+                content: " ▼";
+                float: right;
+            }
+            .has-submenu.active > .menu-link::after {
+                content: " ▲";
             }
         }
         @media (max-width: 480px) {
@@ -352,76 +406,77 @@
                         </a>
                     </div>
                 </div>
+                <button class="mobile-menu-button">☰ Menu</button>
                 <nav class="main-navigation"> <!-- Vervangt jw- classes -->
                     <ul class="main-menu"> <!-- Vervangt jw- classes -->
                         <li class="menu-item"> <!-- Vervangt jw- classes -->
-                            <a class="menu-link" href="https://ourlibrary.us/"> <!-- Vervangt jw- classes -->
+                            <a class="menu-link" href="https://ourlibrary.us/  "> <!-- Vervangt jw- classes -->
                                 <span>Home</span>
                             </a>
                         </li>
                         <li class="menu-item has-submenu"> <!-- Vervangt jw- classes -->
-                            <a class="menu-link" href="https://ourlibrary.us/books"> <!-- Vervangt jw- classes -->
+                            <a class="menu-link" href="https://ourlibrary.us/books  "> <!-- Vervangt jw- classes -->
                                 <span>Books</span>
                             </a>
                             <ul class="submenu"> <!-- Vervangt jw- classes -->
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/books/farsi-f-rs"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/books/farsi-f-rs  "> <!-- Vervangt jw- classes -->
                                         <span>Farsi فارسی</span>
                                     </a>
                                 </li>
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/books/n-z-sh"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/books/n-z-sh  "> <!-- Vervangt jw- classes -->
                                         <span>انگیزیشی</span>
                                     </a>
                                 </li>
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/books/english-n-l-s"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/books/english-n-l-s  "> <!-- Vervangt jw- classes -->
                                         <span>English انگلیسی</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-item has-submenu"> <!-- Vervangt jw- classes -->
-                            <a class="menu-link" href="https://ourlibrary.us/films"> <!-- Vervangt jw- classes -->
+                            <a class="menu-link" href="https://ourlibrary.us/films  "> <!-- Vervangt jw- classes -->
                                 <span>Films</span>
                             </a>
                             <ul class="submenu"> <!-- Vervangt jw- classes -->
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/films/moz-sh-o-n-z-sh"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/films/moz-sh-o-n-z-sh  "> <!-- Vervangt jw- classes -->
                                         <span>اموزیشی و انگیزیشی</span>
                                     </a>
                                 </li>
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/films/f-lm-h-o-doblh"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/films/f-lm-h-o-doblh  "> <!-- Vervangt jw- classes -->
                                         <span>فیلم هاى دوبله</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-item has-submenu"> <!-- Vervangt jw- classes -->
-                            <a class="menu-link" href="https://ourlibrary.us/series"> <!-- Vervangt jw- classes -->
+                            <a class="menu-link" href="https://ourlibrary.us/series  "> <!-- Vervangt jw- classes -->
                                 <span>Series</span>
                             </a>
                             <ul class="submenu"> <!-- Vervangt jw- classes -->
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/series/sr-l-rh"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/series/sr-l-rh  "> <!-- Vervangt jw- classes -->
                                         <span>سریال کره ای</span>
                                     </a>
                                 </li>
                                 <li class="menu-item"> <!-- Vervangt jw- classes -->
-                                    <a class="menu-link" href="https://ourlibrary.us/series/sr-l-kh-r-g"> <!-- Vervangt jw- classes -->
+                                    <a class="menu-link" href="https://ourlibrary.us/series/sr-l-kh-r-g  "> <!-- Vervangt jw- classes -->
                                         <span>سریال خاریجی</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
                         <li class="menu-item"> <!-- Vervangt jw- classes -->
-                            <a class="menu-link" href="https://ourlibrary.us/Live-sport"> <!-- Vervangt jw- classes -->
+                            <a class="menu-link" href="https://ourlibrary.us/Live-sport  "> <!-- Vervangt jw- classes -->
                                 <span>Live Sport</span>
                             </a>
                         </li>
                         <li class="menu-item"> <!-- Vervangt jw- classes -->
-                            <a class="menu-link" href="https://ourlibrary.us/computer"> <!-- Vervangt jw- classes -->
+                            <a class="menu-link" href="https://ourlibrary.us/computer  "> <!-- Vervangt jw- classes -->
                                 <span>computer</span>
                             </a>
                         </li>
@@ -446,7 +501,7 @@
                                     <!-- Columns Container -->
                                     <div class="columns-container"> <!-- Vervangt jw- classes -->
 
-                                        <!-- Column 1 -->
+                                        <!-- Column 1 (Parts 1 & 2) -->
                                         <div class="column-item"> <!-- Vervangt jw- classes -->
                                             <div class="image-element"> <!-- Vervangt jw- classes -->
                                                 <div class="image-wrapper"> <!-- Vervangt jw- classes -->
@@ -468,13 +523,13 @@
                                             <div class="button-element"> <!-- Vervangt jw- classes -->
                                                 <div class="button-container"> <!-- Vervangt jw- classes -->
                                                     <a href="https://dl.dropboxusercontent.com/scl/fi/xkk6ox2jwkxlb6i6w8b0n/Weak-hero-class-E6-720p.mp4?rlkey=cpiomm5ci6fuz4980ytpse6m5&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
-                                                        <span>Part 6 Play</span> <!-- Vervangt jw- classes -->
+                                                        <span>Part 2 Play</span> <!-- Vervangt jw- classes -->
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Column 2 -->
+                                        <!-- Column 2 (Parts 3 & 4) -->
                                         <div class="column-item"> <!-- Vervangt jw- classes -->
                                             <div class="image-element"> <!-- Vervangt jw- classes -->
                                                 <div class="image-wrapper"> <!-- Vervangt jw- classes -->
@@ -484,34 +539,6 @@
                                             <div class="button-element"> <!-- Vervangt jw- classes -->
                                                 <div class="button-container"> <!-- Vervangt jw- classes -->
                                                     <a href="https://dl.dropboxusercontent.com/scl/fi/j22fqvdrn7tpgxdq95v52/Weak-Hero-Class-E2-720p.mp4?rlkey=kd9cu3b0x5amjljfhk3udxhgt&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
-                                                        <span>Part 2 Play</span> <!-- Vervangt jw- classes -->
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="image-element"> <!-- Vervangt jw- classes -->
-                                                <div class="image-wrapper"> <!-- Vervangt jw- classes -->
-                                                    <img class="content-image" width="172" height="129" alt="" src="images/111.jpeg" loading="lazy">
-                                                </div>
-                                            </div>
-                                            <div class="button-element"> <!-- Vervangt jw- classes -->
-                                                <div class="button-container"> <!-- Vervangt jw- classes -->
-                                                    <a href="https://dl.dropboxusercontent.com/scl/fi/tczfz7o1zxvpizfymutio/Weak-hero-class-E7-720p.mp4?rlkey=v31si7kruru9daapi5ioeywlj&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
-                                                        <span>Part 7 Play</span> <!-- Vervangt jw- classes -->
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Column 3 -->
-                                        <div class="column-item"> <!-- Vervangt jw- classes -->
-                                            <div class="image-element"> <!-- Vervangt jw- classes -->
-                                                <div class="image-wrapper"> <!-- Vervangt jw- classes -->
-                                                    <img class="content-image" width="172" height="129" alt="" src="images/111.jpeg" loading="lazy">
-                                                </div>
-                                            </div>
-                                            <div class="button-element"> <!-- Vervangt jw- classes -->
-                                                <div class="button-container"> <!-- Vervangt jw- classes -->
-                                                    <a href="https://dl.dropboxusercontent.com/scl/fi/dlczkrpmlnxnggs3moqmb/Weak-Hero-Class-E3-720p.mp4?rlkey=pd92y159xgaq3apq2rlshe5er&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
                                                         <span>Part 3 Play</span> <!-- Vervangt jw- classes -->
                                                     </a>
                                                 </div>
@@ -523,14 +550,42 @@
                                             </div>
                                             <div class="button-element"> <!-- Vervangt jw- classes -->
                                                 <div class="button-container"> <!-- Vervangt jw- classes -->
-                                                    <a href="https://dl.dropboxusercontent.com/scl/fi/72v1hwv3om98i642ypaaw/Weak-hero-class-E8-720p.mp4?rlkey=s0qxn3ouk0lribdbz26i1wdi6&amp;dl=0" class="action-button"> <!-- Vervangt jw- classes -->
-                                                        <span>Part 8 Play -E</span> <!-- Vervangt jw- classes -->
+                                                    <a href="https://dl.dropboxusercontent.com/scl/fi/tczfz7o1zxvpizfymutio/Weak-hero-class-E7-720p.mp4?rlkey=v31si7kruru9daapi5ioeywlj&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
+                                                        <span>Part 4 Play</span> <!-- Vervangt jw- classes -->
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Column 4 -->
+                                        <!-- Column 3 (Parts 5 & 6) -->
+                                        <div class="column-item"> <!-- Vervangt jw- classes -->
+                                            <div class="image-element"> <!-- Vervangt jw- classes -->
+                                                <div class="image-wrapper"> <!-- Vervangt jw- classes -->
+                                                    <img class="content-image" width="172" height="129" alt="" src="images/111.jpeg" loading="lazy">
+                                                </div>
+                                            </div>
+                                            <div class="button-element"> <!-- Vervangt jw- classes -->
+                                                <div class="button-container"> <!-- Vervangt jw- classes -->
+                                                    <a href="https://dl.dropboxusercontent.com/scl/fi/dlczkrpmlnxnggs3moqmb/Weak-Hero-Class-E3-720p.mp4?rlkey=pd92y159xgaq3apq2rlshe5er&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
+                                                        <span>Part 5 Play</span> <!-- Vervangt jw- classes -->
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="image-element"> <!-- Vervangt jw- classes -->
+                                                <div class="image-wrapper"> <!-- Vervangt jw- classes -->
+                                                    <img class="content-image" width="172" height="129" alt="" src="images/111.jpeg" loading="lazy">
+                                                </div>
+                                            </div>
+                                            <div class="button-element"> <!-- Vervangt jw- classes -->
+                                                <div class="button-container"> <!-- Vervangt jw- classes -->
+                                                    <a href="https://dl.dropboxusercontent.com/scl/fi/72v1hwv3om98i642ypaaw/Weak-hero-class-E8-720p.mp4?rlkey=s0qxn3ouk0lribdbz26i1wdi6&amp;dl=0" class="action-button"> <!-- Vervangt jw- classes -->
+                                                        <span>Part 6 Play -E</span> <!-- Vervangt jw- classes -->
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Column 4 (Part 7 & 8) -->
                                         <div class="column-item"> <!-- Vervangt jw- classes -->
                                             <div class="image-element"> <!-- Vervangt jw- classes -->
                                                 <div class="image-wrapper"> <!-- Vervangt jw- classes -->
@@ -540,13 +595,13 @@
                                             <div class="button-element"> <!-- Vervangt jw- classes -->
                                                 <div class="button-container"> <!-- Vervangt jw- classes -->
                                                     <a href="https://dl.dropboxusercontent.com/scl/fi/i9hgdldib0zm8u2w33utz/Weak-Hero-Class-E4-720p.mp4?rlkey=turyfgrxvfc2f005v6bt0y8ht&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
-                                                        <span>Part 4 Play</span> <!-- Vervangt jw- classes -->
+                                                        <span>Part 7 Play</span> <!-- Vervangt jw- classes -->
                                                     </a>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Column 5 -->
+                                        <!-- Column 5 (Part 8) -->
                                         <div class="column-item"> <!-- Vervangt jw- classes -->
                                             <div class="image-element"> <!-- Vervangt jw- classes -->
                                                 <div class="image-wrapper"> <!-- Vervangt jw- classes -->
@@ -556,7 +611,7 @@
                                             <div class="button-element"> <!-- Vervangt jw- classes -->
                                                 <div class="button-container"> <!-- Vervangt jw- classes -->
                                                     <a href="https://dl.dropboxusercontent.com/scl/fi/oek7ucf0ny47lwc2t1oee/Weak-hero-class-E5-720p.mp4?rlkey=4hmpvh49ghyodav0g66ni9di2&amp;dl=0" target="_blank" rel="noopener" class="action-button"> <!-- Vervangt jw- classes -->
-                                                        <span>Part 5 Play</span> <!-- Vervangt jw- classes -->
+                                                        <span>Part 8 Play</span> <!-- Vervangt jw- classes -->
                                                     </a>
                                                 </div>
                                             </div>
@@ -601,7 +656,7 @@
         <script id="..." type="text/template">...</script>
         -->
 
-        <!-- *** VERSIMPENDE JAVASCRIPT VOOR SCROLL TOP *** -->
+        <!-- *** VERSIMPENDE JAVASCRIPT VOOR SCROLL TOP & MOBILE MENU *** -->
         <script>
             // Simpele versie voor scroll top functionaliteit
             document.addEventListener('DOMContentLoaded', function() {
@@ -619,6 +674,28 @@
                          }
                      });
                  }
+                 
+                 // Mobile menu toggle
+                 const mobileMenuButton = document.querySelector('.mobile-menu-button');
+                 const mainNavigation = document.querySelector('.main-navigation');
+                 
+                 if(mobileMenuButton && mainNavigation) {
+                     mobileMenuButton.addEventListener('click', function() {
+                         mainNavigation.classList.toggle('active');
+                     });
+                 }
+                 
+                 // Toggle submenu in mobile view
+                 const submenuToggles = document.querySelectorAll('.has-submenu > .menu-link');
+                 submenuToggles.forEach(function(toggle) {
+                     toggle.addEventListener('click', function(e) {
+                         if(window.innerWidth <= 768) {
+                             e.preventDefault();
+                             const parentItem = this.parentElement;
+                             parentItem.classList.toggle('active');
+                         }
+                     });
+                 });
              });
         </script>
 
